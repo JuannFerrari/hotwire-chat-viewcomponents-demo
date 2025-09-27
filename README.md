@@ -1,24 +1,43 @@
-# README
+# Hotwire Chat Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- **Real-time messaging** using Hotwire Turbo Streams + viewCompoenents and Action Cable
 
-Things you may want to cover:
+## 🚀 Getting Started
 
-* Ruby version
+### 1. Clone the repository
 
-* System dependencies
+```bash
+git clone <repository-url>
+cd hotwire-chat-demo
+```
 
-* Configuration
+### 2. Install dependencies
 
-* Database creation
+```bash
+bundle install
+```
 
-* Database initialization
+### 3. Setup the database
 
-* How to run the test suite
+```bash
+bin/rails db:create
+bin/rails db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### 4. Start the development server
 
-* Deployment instructions
+```bash
+bin/dev
+```
 
-* ...
+This will start both the Rails server and Tailwind CSS watcher.
+
+The application will be available at `http://localhost:3000`
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Built with ❤️ using Ruby on Rails and Hotwire
