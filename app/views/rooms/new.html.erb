@@ -1,0 +1,22 @@
+<div class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold text-gray-900">New Room</h1>
+        <%= link_to rooms_path, 
+            class: "text-gray-600 hover:text-gray-900 font-medium transition duration-150 ease-in-out flex items-center" do %>
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back
+        <% end %>
+      </div>
+    </div>
+
+    <div class="bg-white shadow-sm rounded-lg overflow-hidden">
+      <div class="px-6 py-8">
+        <%= render 'form', room: @room %>
+      </div>
+    </div>
+  </div>
+</div>

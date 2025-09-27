@@ -1,0 +1,54 @@
+<div class="min-h-screen bg-gray-50">
+  <%= turbo_stream_from @room %>
+  
+  <!-- Header Section -->
+  <div class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-6">
+        <% if notice %>
+          <div class="mb-4 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md" role="alert">
+            <p id="notice"><%= notice %></p>
+          </div>
+        <% end %>
+        
+        <%= turbo_frame_tag "room" do %>
+          <div class="flex items-center justify-between">
+            <div class="flex-1 min-w-0">
+              <%= render @room %>
+            </div>
+            <div class="flex items-center space-x-4">
+              <%= link_to 'Edit', edit_room_path(@room), 
+                  class: "text-indigo-600 hover:text-indigo-900 font-medium transition duration-150 ease-in-out" %>
+              <%= link_to rooms_path, "data-turbo-frame": "_top",
+                  class: "text-gray-600 hover:text-gray-900 font-medium transition duration-150 ease-in-out flex items-center" do %>
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Messages Section -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-white shadow-sm rounded-lg overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h2 class="text-lg font-medium text-gray-900">Messages</h2>
+      </div>
+      
+      <div id="messages" 
+           data-controller="chat-auto-scroll"
+           class="max-h-96 overflow-y-auto p-6 space-y-4">
+        <%= render MessageComponent.with_collection(@room.messages) %>
+      </div>
+      
+      <div class="px-6 py-4 border-t border-gray-200 bg-gray-50">
+        <%= turbo_frame_tag "new_message", src: new_room_message_path(@room), target: "_top" %>
+      </div>
+    </div>
+  </div>
+</div>
