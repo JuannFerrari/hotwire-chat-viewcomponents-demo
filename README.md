@@ -2,6 +2,8 @@
 
 - **Real-time messaging** using Hotwire Turbo Streams + viewCompoenents and Action Cable
 
+For more details, check out the blog post that inspired this project: [ViewComponents over Turbo Streams with Hotwire](https://juanferrari.bearblog.dev/viewcomponents-over-turbo-streams-with-hotwire/).
+
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
